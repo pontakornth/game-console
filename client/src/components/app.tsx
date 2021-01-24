@@ -4,6 +4,8 @@ import { Route, Router, RouterOnChangeArgs } from "preact-router";
 import Home from "../routes/home";
 import Profile from "../routes/profile";
 import NotFoundPage from "../routes/notfound";
+import Game from "../routes/game";
+import Controller from "../routes/controller";
 import Header from "./header";
 
 const App: FunctionalComponent = () => {
@@ -14,11 +16,10 @@ const App: FunctionalComponent = () => {
 
     return (
         <div id="app">
-            <Header />
             <Router onChange={handleRoute}>
                 <Route path="/" component={Home} />
-                <Route path="/profile/" component={Profile} user="me" />
-                <Route path="/profile/:user" component={Profile} />
+                <Route path="/game" component={Game} />
+                <Route path="/controller" component={Controller} />
                 <NotFoundPage default />
             </Router>
         </div>

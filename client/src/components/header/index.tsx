@@ -10,11 +10,11 @@ const Header: FunctionalComponent = () => {
                 <Link activeClassName={style.active} href="/">
                     Home
                 </Link>
-                <Link activeClassName={style.active} href="/profile">
-                    Me
+                <Link activeClassName={style.active} href="/game">
+                    Game
                 </Link>
-                <Link activeClassName={style.active} href="/profile/john">
-                    John
+                <Link activeClassName={style.active} href="/controller">
+                    Controller
                 </Link>
             </nav>
         </header>
