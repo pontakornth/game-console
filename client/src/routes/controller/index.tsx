@@ -9,11 +9,6 @@ const Controller: FunctionalComponent = () => {
     useEffect(() => {
         socket = io("http://localhost:4000");
     });
-    useEffect(() => {
-        socket.on("left", () => {
-            console.log("left");
-        });
-    }, []);
     const handleClick = () => {
         socket.emit("left");
     };
