@@ -12,7 +12,7 @@ const Game: FunctionalComponent = () => {
     }, []);
     useEffect(() => {
         socket.on("left", () => {
-            setPosition(pos => pos - 80);
+            setPosition(pos => pos - 8);
         });
     }, []);
     return (

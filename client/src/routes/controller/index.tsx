@@ -13,7 +13,7 @@ const Controller: FunctionalComponent = () => {
     const handleClick = () => {
         intervalSet.current = setInterval(() => {
             socket.emit("left");
-        }, 500);
+        }, 10);
     };
     const handleUnclick = () => {
         clearInterval(intervalSet.current);
