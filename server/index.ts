@@ -23,8 +23,19 @@ io.on("connection", (socket: socketio.Socket) => {
 		socket.broadcast.emit("left")
 	})
 	socket.on("right", () => {
+		console.log("Right")
 		socket.broadcast.emit("right")
 	})
+	socket.on("down", () => {
+		console.log("Down")
+		socket.broadcast.emit("down")
+	})
+
+	socket.on("up", () => {
+		console.log("Up")
+		socket.broadcast.emit("up")
+	})
+
 })
 
 server.listen(4000, () => {
