@@ -22,10 +22,10 @@ const Game: FunctionalComponent = () => {
             setPosition(pos => ({ ...pos, x: pos.x + 12 }));
         });
         socket.on("up", () => {
-            setPosition(pos => ({ ...pos, y: pos.y + 12 }));
+            setPosition(pos => ({ ...pos, y: pos.y - 12 }));
         });
         socket.on("down", () => {
-            setPosition(pos => ({ ...pos, y: pos.y - 12 }));
+            setPosition(pos => ({ ...pos, y: pos.y + 12 }));
         });
     }, []);
     return (
