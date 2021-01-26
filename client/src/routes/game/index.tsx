@@ -6,7 +6,7 @@ import { io, Socket } from "socket.io-client";
 let socket: Socket;
 
 const Game: FunctionalComponent = () => {
-    // TODO: Use transform instead
+    // Should I use reducer instead?
     const [position, setPosition] = useState<{ x: number; y: number }>({
         x: 0,
         y: 0
@@ -28,6 +28,7 @@ const Game: FunctionalComponent = () => {
                 style={{
                     height: "34px",
                     width: "34px",
+                    margin: "auto",
                     background: "red",
                     transform: `translateX(${position.x}px)`
                 }}
