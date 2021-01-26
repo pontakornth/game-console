@@ -21,6 +21,16 @@ const Controller: FunctionalComponent = () => {
         intervalSet,
         10
     );
+    const [handleClickDown, handleUnclickDown] = useHold(
+        () => socket.emit("down"),
+        intervalSet,
+        10
+    );
+    const [handleClickUp, handleUnclickUp] = useHold(
+        () => socket.emit("up"),
+        intervalSet,
+        10
+    );
     return (
         <div class="controller">
             <button onMouseUp={handleUnclickLeft} onMouseDown={handleClickLeft}>
@@ -31,6 +41,12 @@ const Controller: FunctionalComponent = () => {
                 onMouseDown={handleClickRight}
             >
                 Right
+            </button>
+            <button onMouseUp={handleUnclickDown} onMouseDown={handleClickDown}>
+                Down
+            </button>
+            <button onMouseUp={handleUnclickUp} onMouseDown={handleClickUp}>
+                Up
             </button>
             <p>This is controller</p>
         </div>

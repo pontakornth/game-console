@@ -21,6 +21,12 @@ const Game: FunctionalComponent = () => {
         socket.on("right", () => {
             setPosition(pos => ({ ...pos, x: pos.x + 12 }));
         });
+        socket.on("up", () => {
+            setPosition(pos => ({ ...pos, y: pos.y + 12 }));
+        });
+        socket.on("down", () => {
+            setPosition(pos => ({ ...pos, y: pos.y - 12 }));
+        });
     }, []);
     return (
         <div class="game">
@@ -30,7 +36,7 @@ const Game: FunctionalComponent = () => {
                     width: "34px",
                     margin: "auto",
                     background: "red",
-                    transform: `translateX(${position.x}px)`
+                    transform: `translateX(${position.x}px) translateY(${position.y}px)`
                 }}
             ></div>
         </div>
