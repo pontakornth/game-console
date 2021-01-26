@@ -1,6 +1,7 @@
 import { h, FunctionalComponent } from "preact";
 import { useEffect, useRef } from "preact/hooks";
 import { io, Socket } from "socket.io-client";
+import useHold from "../../utils/useHold";
 
 // I don't know if there is a better way to do this but I hope there is
 let socket: Socket;
@@ -10,14 +11,11 @@ const Controller: FunctionalComponent = () => {
     useEffect(() => {
         socket = io("http://localhost:4000");
     });
-    const handleClick = () => {
-        intervalSet.current = setInterval(() => {
-            socket.emit("left");
-        }, 10);
-    };
-    const handleUnclick = () => {
-        clearInterval(intervalSet.current);
-    };
+    const [handleClick, handleUnclick] = useHold(
+        () => socket.emit("left"),
+        intervalSet,
+        10
+    );
     return (
         <div class="controller">
             <button onMouseUp={handleUnclick} onMouseDown={handleClick}>
