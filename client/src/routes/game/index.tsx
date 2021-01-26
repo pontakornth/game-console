@@ -14,6 +14,9 @@ const Game: FunctionalComponent = () => {
         socket.on("left", () => {
             setPosition(pos => pos - 8);
         });
+        socket.on("right", () => {
+            setPosition(pos => pos + 8);
+        });
     }, []);
     return (
         <div class="game">

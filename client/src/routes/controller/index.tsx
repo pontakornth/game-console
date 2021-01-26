@@ -11,15 +11,26 @@ const Controller: FunctionalComponent = () => {
     useEffect(() => {
         socket = io("http://localhost:4000");
     });
-    const [handleClick, handleUnclick] = useHold(
+    const [handleClickLeft, handleUnclickLeft] = useHold(
         () => socket.emit("left"),
+        intervalSet,
+        10
+    );
+    const [handleClickRight, handleUnclickRight] = useHold(
+        () => socket.emit("right"),
         intervalSet,
         10
     );
     return (
         <div class="controller">
-            <button onMouseUp={handleUnclick} onMouseDown={handleClick}>
+            <button onMouseUp={handleUnclickLeft} onMouseDown={handleClickLeft}>
                 Left
+            </button>
+            <button
+                onMouseUp={handleUnclickRight}
+                onMouseDown={handleClickRight}
+            >
+                Right
             </button>
             <p>This is controller</p>
         </div>
