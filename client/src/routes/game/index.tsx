@@ -6,16 +6,20 @@ import { io, Socket } from "socket.io-client";
 let socket: Socket;
 
 const Game: FunctionalComponent = () => {
-    const [position, setPosition] = useState<number>(1800);
+    // TODO: Use transform instead
+    const [position, setPosition] = useState<{ x: number; y: number }>({
+        x: 0,
+        y: 0
+    });
     useEffect(() => {
         socket = io("http://localhost:4000");
     }, []);
     useEffect(() => {
         socket.on("left", () => {
-            setPosition(pos => pos - 8);
+            setPosition(pos => ({ ...pos, x: pos.x - 12 }));
         });
         socket.on("right", () => {
-            setPosition(pos => pos + 8);
+            setPosition(pos => ({ ...pos, x: pos.x + 12 }));
         });
     }, []);
     return (
@@ -25,8 +29,7 @@ const Game: FunctionalComponent = () => {
                     height: "34px",
                     width: "34px",
                     background: "red",
-                    position: "absolute",
-                    left: `${position}px`
+                    transform: `translateX(${position.x}px)`
                 }}
             ></div>
         </div>
