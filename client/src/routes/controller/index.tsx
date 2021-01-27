@@ -33,23 +33,37 @@ const Controller: FunctionalComponent = () => {
         10
     );
     return (
-        <div class="controller">
-            <button onMouseUp={handleUnclickLeft} onMouseDown={handleClickLeft}>
-                Left
-            </button>
-            <button
-                onMouseUp={handleUnclickRight}
-                onMouseDown={handleClickRight}
-            >
-                Right
-            </button>
-            <button onMouseUp={handleUnclickDown} onMouseDown={handleClickDown}>
-                Down
-            </button>
-            <button onMouseUp={handleUnclickUp} onMouseDown={handleClickUp}>
-                Up
-            </button>
-            <p>This is controller</p>
+        <div class={style.page}>
+            <div class={style.gamePad}>
+                <button
+                    onMouseUp={handleUnclickLeft}
+                    class={style.leftButton}
+                    onMouseDown={handleClickLeft}
+                >
+                    Left
+                </button>
+                <button
+                    onMouseUp={handleUnclickRight}
+                    onMouseDown={handleClickRight}
+                    class={style.rightButton}
+                >
+                    Right
+                </button>
+                <button
+                    onMouseUp={handleUnclickDown}
+                    class={style.downButton}
+                    onMouseDown={handleClickDown}
+                >
+                    Down
+                </button>
+                <button
+                    onMouseUp={handleUnclickUp}
+                    class={style.upButton}
+                    onMouseDown={handleClickUp}
+                >
+                    Up
+                </button>
+            </div>
         </div>
     );
 };
