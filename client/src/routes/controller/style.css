@@ -1,0 +1,23 @@
+.gamePad {
+    display: grid;
+    grid-template-areas:
+        "blank up blank"
+        "left blank right"
+        "blank down blank";
+}
+
+.leftButton {
+    grid-area: "left";
+}
+
+.rightButton {
+    grid-area: "right";
+}
+
+.upButton {
+    grid-area: "up";
+}
+
+.downButton {
+    grid-area: "down";
+}

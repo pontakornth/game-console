@@ -1,5 +1,6 @@
 import { h, FunctionalComponent } from "preact";
 import { useEffect, useRef } from "preact/hooks";
+import * as style from "./style.css";
 import { io, Socket } from "socket.io-client";
 import useHold from "../../utils/useHold";
 
