@@ -1,6 +1,8 @@
 {
   "scripts": {
-    "dev": "ts-node-dev index.ts"
+    "dev": "ts-node-dev index.ts",
+    "build": "tsc --project ./",
+    "serve": "node ./build/index.js"
   },
   "dependencies": {
     "@types/socket.io": "^2.1.12",
